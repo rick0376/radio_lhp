@@ -3,13 +3,20 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
-  // ✅ sempre liberar a tela de login (senão vira loop)
-  if (path.startsWith("/admin/login")) return NextResponse.next();
+  // ✅ NUNCA proteger a tela de login
+  if (path === "/admin/login") {
+    return NextResponse.next();
+  }
 
+  // proteger APENAS estas rotas
   const isProtected =
-    path.startsWith("/admin") || path.startsWith("/admin-radio");
+    path === "/admin" ||
+    path.startsWith("/admin-radio") ||
+    path.startsWith("/admin/");
 
-  if (!isProtected) return NextResponse.next();
+  if (!isProtected) {
+    return NextResponse.next();
+  }
 
   const isLogged = req.cookies.get("radio_admin")?.value === "1";
 
@@ -22,6 +29,7 @@ export function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
+// 🔴 matcher NÃO pode incluir /admin/login
 export const config = {
-  matcher: ["/admin/:path*", "/admin-radio/:path*"],
+  matcher: ["/admin", "/admin-radio/:path*", "/admin/:path*"],
 };
