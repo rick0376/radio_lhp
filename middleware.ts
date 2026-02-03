@@ -3,10 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
-  const isAdminArea =
-    path.startsWith("/admin-radio") || path.startsWith("/admin");
+  // ✅ sempre liberar a tela de login (senão vira loop)
+  if (path.startsWith("/admin/login")) return NextResponse.next();
 
-  if (!isAdminArea) return NextResponse.next();
+  const isProtected =
+    path.startsWith("/admin") || path.startsWith("/admin-radio");
+
+  if (!isProtected) return NextResponse.next();
 
   const isLogged = req.cookies.get("radio_admin")?.value === "1";
 
