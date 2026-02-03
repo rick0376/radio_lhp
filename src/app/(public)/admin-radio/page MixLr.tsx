@@ -37,11 +37,6 @@ export default function AdminRadioPage() {
   }
 
   async function setLive(live: boolean) {
-    if (!streamUrl) {
-      setMsg("Por favor, insira uma URL válida.");
-      return; // Evita ligar sem URL
-    }
-
     setLoading(true);
     setMsg("");
     try {
@@ -88,7 +83,7 @@ export default function AdminRadioPage() {
 
         <input
           className={styles.input}
-          placeholder="URL do áudio"
+          placeholder="URL do áudio (Mixlr)"
           value={streamUrl}
           onChange={(e) => setStreamUrl(e.target.value)}
           disabled={loading}
@@ -102,7 +97,7 @@ export default function AdminRadioPage() {
           <button
             className={styles.btnGreen}
             onClick={() => setLive(true)}
-            disabled={loading || !streamUrl}
+            disabled={loading}
           >
             Ligar
           </button>

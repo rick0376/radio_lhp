@@ -16,7 +16,12 @@ export default function AdminDashboardPage() {
   }, [router]);
 
   function logout() {
+    // apaga chave local (se você ainda usa)
     localStorage.removeItem("radio_admin_key");
+
+    // apaga o cookie que o middleware usa
+    document.cookie = "radio_admin=; Max-Age=0; path=/; SameSite=Lax";
+
     router.replace("/");
   }
 
@@ -33,10 +38,11 @@ export default function AdminDashboardPage() {
             <span>Ligar / Desligar transmissão</span>
           </Link>
 
-          <Link href="/admin/iniciar-live" className={styles.actionBtnAlt}>
+          {/*<Link href="/admin/iniciar-live" className={styles.actionBtnAlt}>
             🎥 Iniciar Live
             <span>Abrir YouTube para transmissão</span>
-          </Link>
+            </Link>
+          */}
         </div>
 
         <button className={styles.logout} onClick={logout}>

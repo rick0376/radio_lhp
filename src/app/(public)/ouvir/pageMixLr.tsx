@@ -10,7 +10,7 @@ type Status = {
 };
 
 export default function OuvirPage() {
-  // 🔴 nunca começar com null
+  // 🔴 NUNCA começar com null
   const [status, setStatus] = useState<Status>({
     live: false,
     title: "Rádio LHP",
@@ -25,7 +25,7 @@ export default function OuvirPage() {
       const j = (await r.json()) as Status;
 
       setStatus((prev) => {
-        // só atualiza se algo mudou
+        // 🔴 só atualiza se algo realmente mudou
         if (
           prev.live !== j.live ||
           prev.streamUrl !== j.streamUrl ||
@@ -36,12 +36,12 @@ export default function OuvirPage() {
         return prev;
       });
     } catch {
-      // ❌ não altera estado em erro (não derruba o áudio)
+      // 🔴 NÃO altera o estado em erro
     }
   }
 
   useEffect(() => {
-    load();
+    load(); // primeira vez
     const t = setInterval(load, 5000);
     return () => clearInterval(t);
   }, []);
@@ -51,19 +51,20 @@ export default function OuvirPage() {
       <div className={styles.card}>
         <h1 className={styles.title}>{status.title ?? "Rádio LHP"}</h1>
 
-        {/* AO VIVO COM ÁUDIO */}
+        {/* AO VIVO */}
         {status.live && status.streamUrl && (
           <>
             <p className={styles.live}>AO VIVO 🔴</p>
 
-            <audio
-              className={styles.audio}
-              controls
-              autoPlay
-              src={status.streamUrl}
-            >
-              Seu navegador não suporta áudio.
-            </audio>
+            <div className={styles.radioPlayerWrap}>
+              <iframe
+                className={styles.radioPlayer}
+                src={status.streamUrl}
+                title="Rádio ao vivo"
+                allow="autoplay"
+                loading="lazy"
+              />
+            </div>
           </>
         )}
 
