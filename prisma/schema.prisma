@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model RadioStatus {
+  id        String   @id
+  live      Boolean
+  title     String?
+  streamUrl String?
+  updatedAt DateTime @updatedAt
+}

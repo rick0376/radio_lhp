@@ -1,0 +1,114 @@
+//src/app/(public)/ouvir/styles.module.scss
+
+.container {
+  min-height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 20px;
+  color: #fff;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+
+.live,
+.off {
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.live {
+  letter-spacing: 0.3px;
+}
+
+.off {
+  opacity: 0.85;
+}
+
+.muted {
+  opacity: 0.75;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.audio {
+  width: 100%;
+  margin: 12px 0;
+  border-radius: 12px;
+}
+
+.warnBox {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.playerWrap {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+/* 🎧 Modo rádio (áudio em foco) */
+.radioPlayerWrap {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.radioPlayer {
+  width: 100%;
+  height: 90px; /* só áudio */
+  border: 0;
+  display: block;
+}
+
+/* ✅ Responsivo */
+@media (max-width: 520px) {
+  .container {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .muted {
+    font-size: 13px;
+  }
+}

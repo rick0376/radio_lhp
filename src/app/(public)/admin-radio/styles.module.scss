@@ -1,0 +1,100 @@
+.container {
+  min-height: calc(100vh - 0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(
+    circle at top,
+    #266c9e 0%,
+    #6696b6 40%,
+    #296592 100%
+  );
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  display: grid;
+  gap: 12px;
+  color: #fff;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn,
+.btnGreen,
+.btnRed {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btnGreen {
+  background: #22c55e;
+  color: #0b1220;
+}
+
+.btnRed {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn:disabled,
+.btnGreen:disabled,
+.btnRed:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 6px;
+  opacity: 0.95;
+}
+
+.live {
+  color: #22c55e;
+}
+
+.offline {
+  color: #fbbf24;
+}
+
+.msg {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}

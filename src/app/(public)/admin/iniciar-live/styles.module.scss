@@ -1,0 +1,91 @@
+/* src/app/(public)/admin/iniciar-live/styles.module.scss */
+
+.container {
+  min-height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 22px;
+  color: #fff;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.actions {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.btnMobile,
+.btnDesktop {
+  display: block;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.08s ease,
+    opacity 0.08s ease;
+}
+
+.btnMobile {
+  background: #ff0000;
+  color: #fff;
+}
+
+.btnDesktop {
+  background: #1f2937;
+  color: #fff;
+}
+
+.btnMobile:hover,
+.btnDesktop:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.note {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* 📱 Mobile */
+@media (max-width: 520px) {
+  .container {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}
