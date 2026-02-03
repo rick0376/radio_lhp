@@ -3,16 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
-  // ✅ NUNCA proteger a tela de login
+  // 🔓 SEMPRE liberar login
   if (path === "/admin/login") {
     return NextResponse.next();
   }
 
-  // proteger APENAS estas rotas
-  const isProtected =
-    path === "/admin" ||
-    path.startsWith("/admin-radio") ||
-    path.startsWith("/admin/");
+  // 🔒 proteger SOMENTE estas rotas
+  const isProtected = path === "/admin" || path.startsWith("/admin-radio");
 
   if (!isProtected) {
     return NextResponse.next();
@@ -29,7 +26,7 @@ export function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-// 🔴 matcher NÃO pode incluir /admin/login
+// 🔴 NÃO use /admin/:path*
 export const config = {
-  matcher: ["/admin", "/admin-radio/:path*", "/admin/:path*"],
+  matcher: ["/admin", "/admin-radio/:path*"],
 };
