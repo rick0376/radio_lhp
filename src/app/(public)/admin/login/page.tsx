@@ -48,6 +48,7 @@ export default function AdminLoginPage() {
       }
 
       localStorage.setItem("radio_admin_key", k);
+      document.cookie = "radio_admin=1; path=/; SameSite=Lax";
 
       // ✅ vai para o dashboard
       router.replace("/admin");

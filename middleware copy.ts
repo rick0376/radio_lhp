@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const path = req.nextUrl.pathname;
+  const isAdminPage = req.nextUrl.pathname.startsWith("/admin-radio");
 
-  const isAdminArea =
-    path.startsWith("/admin-radio") || path.startsWith("/admin");
-
-  if (!isAdminArea) return NextResponse.next();
+  if (!isAdminPage) return NextResponse.next();
 
   const isLogged = req.cookies.get("radio_admin")?.value === "1";
 
@@ -20,5 +17,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/admin-radio/:path*"],
+  matcher: ["/admin-radio/:path*"],
 };
