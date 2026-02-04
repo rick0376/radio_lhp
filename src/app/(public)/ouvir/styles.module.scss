@@ -50,6 +50,13 @@
   font-size: 22px;
 }
 
+/* Pausa a onda quando offline */
+.wavePaused .bar {
+  animation: none !important;
+  opacity: 0.35;
+  transform: scaleY(0.7);
+}
+
 .dotLive,
 .dotOff {
   width: 16px;
@@ -251,12 +258,6 @@
   opacity: 0.55;
 }
 
-.wavePaused .bar {
-  animation: none !important;
-  opacity: 0.35;
-  transform: scaleY(0.7);
-}
-
 .bar {
   width: 4px;
   height: 14px;
@@ -358,6 +359,11 @@
   }
 
   .nowTitle {
+    font-size: 18px;
+  }
+
+  .statusLiveText,
+  .statusOffText {
     font-size: 18px;
   }
 }

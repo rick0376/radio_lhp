@@ -9,10 +9,6 @@ type Status = {
   streamUrl?: string | null;
 };
 
-const AD_NAME = "Henrique Pereira";
-const AD_ROLE = "Web & Mobile Applications";
-const AD_CONTACT = "WhatsApp: (11) 9 9999-9999";
-
 const STATION_NAME = "Radio Presbiteriana";
 const ACCOUNT_NAME = "Á Hora do Milagre";
 
