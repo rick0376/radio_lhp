@@ -99,7 +99,9 @@ export default function OuvirPage() {
         <h1 className={styles.pageTitle}>{status.title ?? "Rádio LHP"}</h1>
 
         <div className={styles.statusRow}>
-          <span className={styles.statusText}>
+          <span
+            className={isLive ? styles.statusLiveText : styles.statusOffText}
+          >
             {isLive ? "AO VIVO" : "OFFLINE"}
           </span>
           <span className={isLive ? styles.dotLive : styles.dotOff} />
@@ -141,7 +143,10 @@ export default function OuvirPage() {
                 </div>
                 <div className={styles.nowTitle}>{STATION_NAME}</div>
 
-                <div className={styles.wave} aria-hidden="true">
+                <div
+                  className={`${styles.wave} ${!isLive ? styles.wavePaused : ""}`}
+                  aria-hidden="true"
+                >
                   <span className={styles.bar} />
                   <span className={styles.bar} />
                   <span className={styles.bar} />
@@ -182,7 +187,7 @@ export default function OuvirPage() {
               Desenvolvedor: <strong>Rick Pereira</strong> :{" "}
               <a
                 className={styles.adLink}
-                href="https://wa.me/55129991890682"
+                href="https://wa.me/5512991890682"
                 target="_blank"
                 rel="noreferrer"
               >

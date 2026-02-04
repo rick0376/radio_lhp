@@ -38,6 +38,18 @@
   font-size: 22px;
 }
 
+.statusLiveText {
+  color: #fff;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.statusOffText {
+  color: #ff3b3b; /* vermelho */
+  font-weight: 900;
+  font-size: 22px;
+}
+
 .dotLive,
 .dotOff {
   width: 16px;
@@ -237,6 +249,12 @@
   gap: 4px;
   margin-top: 10px;
   opacity: 0.55;
+}
+
+.wavePaused .bar {
+  animation: none !important;
+  opacity: 0.35;
+  transform: scaleY(0.7);
 }
 
 .bar {
