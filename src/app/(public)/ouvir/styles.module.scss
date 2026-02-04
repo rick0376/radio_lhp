@@ -1,114 +1,362 @@
-//src/app/(public)/ouvir/styles.module.scss
-
 .container {
   min-height: calc(100vh - 80px);
   display: grid;
   place-items: center;
   padding: 24px;
+  background: radial-gradient(
+    1200px 600px at 50% 0%,
+    #0b1a3a 0%,
+    #050b18 55%,
+    #030713 100%
+  );
 }
 
 .card {
   width: 100%;
-  max-width: 520px;
-  background: rgba(15, 23, 42, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
-  padding: 20px;
-  color: #fff;
+  max-width: 820px;
+  padding: 0;
+}
 
+.pageTitle {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 900;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.statusText {
+  color: #fff;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.dotLive,
+.dotOff {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.dotLive {
+  background: #ff3b3b;
+  box-shadow: 0 0 0 6px rgba(255, 59, 59, 0.18);
+}
+
+.dotOff {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Card “rádio” */
+.radioShell {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 240px;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
-.title {
+.bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 45%;
+  left: 50%;
+  transform: translateX(-50%) scale(1.05);
+
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: 50% 40%;
+  filter: blur(2px);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 16, 40, 0.8) 0%,
+    rgba(6, 16, 40, 0.55) 55%,
+    rgba(6, 16, 40, 0.15) 100%
+  );
+}
+
+.inner {
+  position: relative;
+  padding: 18px 18px 22px;
+  color: #fff;
+}
+
+.stationRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 60% 35%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 40% 60%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 35% 80%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 80% 45%,
+      rgba(255, 255, 255, 0.9) 0 2px,
+      transparent 3px
+    ),
+    rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stationMeta {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.accountName {
   font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  line-height: 1.15;
-}
-
-.live,
-.off {
   font-weight: 900;
-  margin-bottom: 10px;
 }
 
-.live {
-  letter-spacing: 0.3px;
+.badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.off {
-  opacity: 0.85;
+.badgeLive,
+.badgeEvent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.badgeLive {
+  background: rgba(255, 59, 59, 0.9);
+}
+
+.badgeEvent {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.badgeDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0.9;
+}
+
+/* “player” */
+.nowCard {
+  display: grid;
+  grid-template-columns: 70px 1fr 60px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+}
+
+.cover {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  background-image: var(--cover);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nowMeta {
+  min-width: 0;
+}
+
+.nowLabel {
+  font-size: 13px;
+  font-weight: 900;
+  opacity: 0.7;
+  letter-spacing: 0.4px;
+}
+
+.nowTitle {
+  font-size: 26px;
+  font-weight: 900;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wave {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+  opacity: 0.55;
+}
+
+.bar {
+  width: 4px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  animation: wave 900ms ease-in-out infinite;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 80ms;
+}
+.bar:nth-child(3) {
+  animation-delay: 160ms;
+}
+.bar:nth-child(4) {
+  animation-delay: 240ms;
+}
+.bar:nth-child(5) {
+  animation-delay: 320ms;
+}
+.bar:nth-child(6) {
+  animation-delay: 400ms;
+}
+.bar:nth-child(7) {
+  animation-delay: 480ms;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.7);
+  }
+  50% {
+    transform: scaleY(1.8);
+  }
+}
+
+.playBtn {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 900;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition:
+    transform 0.08s ease,
+    opacity 0.08s ease,
+    background 0.08s ease;
+}
+
+.playBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.playDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .muted {
+  margin-top: 12px;
   opacity: 0.75;
   font-size: 14px;
-  line-height: 1.35;
 }
 
-.audio {
-  width: 100%;
-  margin: 12px;
+.error {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(248, 113, 113, 0.14);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  padding: 10px 12px;
   border-radius: 12px;
 }
 
-.warnBox {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.playerWrap {
-  width: 100%;
-  margin-top: 12px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.player {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  display: block;
-}
-
-/* 🎧 Modo rádio (áudio em foco) */
-.radioPlayerWrap {
-  width: 100%;
-  margin-top: 12px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.radioPlayer {
-  width: 100%;
-  height: 90px; /* só áudio */
-  border: 0;
-  display: block;
-}
-
-/* ✅ Responsivo */
+/* Mobile */
 @media (max-width: 520px) {
-  .container {
-    padding: 16px;
+  .pageTitle {
+    font-size: 28px;
   }
-
-  .card {
-    padding: 16px;
-    border-radius: 16px;
-  }
-
-  .title {
+  .statusText {
     font-size: 18px;
   }
 
-  .muted {
-    font-size: 13px;
+  .nowCard {
+    grid-template-columns: 56px 1fr 54px;
   }
+
+  .cover {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .nowTitle {
+    font-size: 18px;
+  }
+}
+
+.adBadge {
+  margin-top: 10px;
+  font-size: 14px; // Pode ajustar o tamanho do texto
+  opacity: 0.75;
+  text-align: right;
+  color: #fff;
+}
+
+.adLink {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.adLink:hover {
+  text-decoration: underline;
 }
