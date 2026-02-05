@@ -187,7 +187,7 @@ export default function OuvirPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                (12) 9 99189-0682
+                (12) 99189-0682
               </a>
             </div>
           </div>
